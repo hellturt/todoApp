@@ -19,6 +19,7 @@ gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
+gem 'devise'
 
 
 

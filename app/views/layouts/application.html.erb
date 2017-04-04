@@ -13,6 +13,13 @@
   	<%= render 'layouts/header' %>
 
     <div class="container">
+      <% if flash[:notice] %>
+        <%= content_tag(:div, flash[:notice], class: "alert alert-success") %>
+      <% end %>
+      <% if flash[:alert] %>
+        <%= content_tag(:div, flash[:alert], class: "alert alert-warning") %>
+      <% end %>
+
     	<%= yield %>
 	</div>
 
