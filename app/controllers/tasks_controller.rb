@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	before_action :find_task, only:[:show, :edit, :update, :destroy]
+	before_action :find_task, only:[:show, :edit, :update, :destroy, :change]
 	before_action :authenticate_user!
 
 	def index
@@ -34,6 +34,12 @@ class TasksController < ApplicationController
 		redirect_to tasks_path
 	end
 
+	def change
+		@task.update_attributes(state: params[:state])
+		respond_to do |format|
+			format.html {redirect_to tasks_path}
+		end
+	end
 
 	private
 

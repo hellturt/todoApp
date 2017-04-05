@@ -1,0 +1,9 @@
+%ul
+	%li
+		= link_to task.id, task
+		= task.state
+		- if task.state == "doing"
+			= link_to "mark as to do", change_task_path(task, state: "to_do"), method: :put
+			= link_to "mark as done", change_task_path(task, state: "done"), method: :put
+		- else
+			= link_to "mark as doing", change_task_path(task, state: "doing"), method: :put
