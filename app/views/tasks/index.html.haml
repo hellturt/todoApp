@@ -1,0 +1,22 @@
+%h3 To Do
+- @to_do.each do |task|
+	%ul
+		%li
+			= link_to task.id, task
+			= task.state
+
+
+%h3 Doing
+- @doing.each do |task|
+	%ul
+		%li
+			= link_to task.id, task
+			= task.state
+
+
+%h3 Done
+- @done.each do |task|
+	%ul
+		%li
+			= link_to task.id, task
+			= task.state
