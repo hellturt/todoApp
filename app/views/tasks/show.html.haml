@@ -1,5 +1,6 @@
-%h1= @task.id
-%p= @task.content
+%div.col-sm-6.col-md-4.col-md-offset-4
+	%h1= @task.id
+	%p= raw(@task.content_html)
 
-= link_to "edit task", edit_task_path(@task)
-= link_to "delete task", @task, method: :delete, data:{ confirm: "Delete this task?" }
+	= link_to "edit task", edit_task_path(@task)
+	= link_to "delete task", @task, method: :delete, data:{ confirm: "Delete this task?" }

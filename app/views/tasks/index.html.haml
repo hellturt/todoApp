@@ -1,8 +1,15 @@
-%h3 To Do
-= render @to_do
+%div.row
+	%div.col-md-4
+		%h3.text-center To Do List
+		%div
+			= render @to_do
 
-%h3 Doing
-= render @doing
+	%div.col-md-4
+		%h3.text-center Doing List
+		%div
+			= render @doing
 
-%h3 Done
-= render @done
+	%div.col-md-4
+		%h3.text-center Done List
+		%div
+			= render @done

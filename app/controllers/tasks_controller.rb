@@ -26,7 +26,7 @@ class TasksController < ApplicationController
 
 	def update
 		@task.update(task_params)
-		redirect_to @task
+		redirect_to tasks_path
 	end
 
 	def destroy
@@ -48,6 +48,6 @@ class TasksController < ApplicationController
 	end
 
 	def task_params
-		params.require(:task).permit(:content, :state)
+		params.require(:task).permit(:content, :state, :title)
 	end
 end

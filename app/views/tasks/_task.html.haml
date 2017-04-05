@@ -1,9 +1,34 @@
-%ul
-	%li
-		= link_to task.id, task
-		= task.state
+%div.panel.panel-info
+	%div.panel-heading.clearfix
+		%div.pull-left
+			%h1
+				= task.title
+				= link_to edit_task_path(task) do
+					%i.fa.fa-pencil
+			%p
+				created
+				= time_ago_in_words(task.created_at)
+				ago
+				
+		%div.pull-right
+			= link_to task, method: :delete, data: {confirm: "Delete Task?"} do
+				%i.fa.fa-times
+	%div.panel-body
+		= raw(task.content_html)
+	%div.panel-footer
 		- if task.state == "doing"
-			= link_to "mark as to do", change_task_path(task, state: "to_do"), method: :put
-			= link_to "mark as done", change_task_path(task, state: "done"), method: :put
+			%div.btn-group.btn-group-justified
+				= link_to change_task_path(task, state: "to_do"), class: "btn btn-info btn-md btn-block", method: :put do
+					%i.fa.fa-chevron-left
+				= link_to change_task_path(task, state: "done"), class: "btn btn-info btn-md btn-block", method: :put do
+					%i.fa.fa-chevron-right
+		- elsif task.state == "done"
+			= link_to change_task_path(task, state: "doing"), class: "btn btn-info btn-md btn-block", method: :put do
+				%i.fa.fa-chevron-left
 		- else
-			= link_to "mark as doing", change_task_path(task, state: "doing"), method: :put
+			= link_to change_task_path(task, state: "doing"), class: "btn btn-info btn-md btn-block", method: :put do
+				%i.fa.fa-chevron-right
+
+		
+		
+		
